@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beto.solid.infra.model.User;
+import com.beto.solid.infra.model.validation.UserValidation;
 import com.beto.solid.infra.representation.UserDTO;
 import com.beto.solid.service.UserService;
 
@@ -23,9 +24,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody UserDTO userDTO) {
-        userService.createUser(userDTO);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserValidation body) {
+        return ResponseEntity.ok(userService.createUser(body));
     }
     
 
