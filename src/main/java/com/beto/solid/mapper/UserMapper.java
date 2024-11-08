@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import com.beto.solid.infra.model.User;
 import com.beto.solid.infra.model.validation.UserValidation;
 import com.beto.solid.infra.representation.UserDTO;
+import com.beto.solid.logs.UserLog;
 
 @Component
 public class UserMapper {
